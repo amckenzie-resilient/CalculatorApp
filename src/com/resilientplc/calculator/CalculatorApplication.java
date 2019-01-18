@@ -7,12 +7,12 @@ public class CalculatorApplication {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        int val1 = 0, val2 = 0, result;
+        int val1 = 0, val2 = 0, result = 0;
 
-        int operation;  // capture operation input from the user
-        Calculator cal = new Calculator();  //  a new calculator object for calculations
+        String operation;                       // capture operation input from the user
+        Calculator cal = new Calculator();      //  a new calculator object for calculations
 
-        boolean open = true;    // while the app is open
+        boolean open = true;                    // while the app is open
 
         while (open) {
 
@@ -27,9 +27,8 @@ public class CalculatorApplication {
             }
 
             // Select operation type
-            System.out.print("Please enter a valid operation: \n");
-            System.out.print(" 1: Addition: \n 2: Subtract: \n 3: Multiplication: \n 4: Division: \n");
-            operation = input.nextInt();
+            System.out.print("Please enter a valid operation: ");
+            operation = input.next();
 
             // Enter second number
             try {
@@ -42,30 +41,26 @@ public class CalculatorApplication {
             }
 
             switch (operation) {
-                case 1:
-                    operation = 1;
+                case "+":
                     result = cal.add(val1, val2);
                     break;
-                case 2:
-                    operation = 2;
+                case "-":
                     result = cal.subtract(val1, val2);
                     break;
-                case 3:
-                    operation = 3;
+                case "*":
                     result = cal.multiple(val1, val2);
                     break;
-                case 4:
-                    operation = 4;
+                case "/":
                     result = cal.divide(val1, val2);
                     break;
                 default:
-                    result = 0;
+                    //result = 0;
                     System.out.print("Invalid Operation Selected");
                     break;
             }
 
             //Display the first number values entered by the user
-            System.out.print("First Number : " + val1 + "\n");
+            System.out.print("\nFirst Number : " + val1 + "\n");
 
             // Display operation
             System.out.print("Operation : " + operation + "\n");
