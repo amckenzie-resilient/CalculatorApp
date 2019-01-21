@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04070413-bba1-4a19-8062-040e3832808d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/resilientplc/calculator/TestCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/resilientplc/calculator/CalculatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/resilientplc/calculator/CalculatorApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalculatorApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CalculatorApp.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,11 +15,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/resilientplc/calculator/CalculatorApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="935">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="578">
+              <caret line="34" column="31" lean-forward="true" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/resilientplc/calculator/TestCalculator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="78" lean-forward="true" selection-start-line="27" selection-start-column="78" selection-end-line="27" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -29,8 +42,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/resilientplc/calculator/Calculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="187">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="e#328#329#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,6 +70,7 @@
         <option value="$PROJECT_DIR$/src/com/resilientplc/calculator/MainClass.java" />
         <option value="$PROJECT_DIR$/src/com/resilientplc/calculator/Calculator.java" />
         <option value="$PROJECT_DIR$/src/com/resilientplc/calculator/CalculatorApplication.java" />
+        <option value="$PROJECT_DIR$/src/com/resilientplc/calculator/TestCalculator.java" />
       </list>
     </option>
   </component>
@@ -68,8 +85,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -92,10 +107,16 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547807964318" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548071286254" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="show.migrate.to.gradle.popup" value="false" />
@@ -112,7 +133,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CalculatorApplication">
+  <component name="RunManager" selected="JUnit.TestCalculator">
     <configuration name="CalculatorApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.resilientplc.calculator.CalculatorApplication" />
       <module name="CalculatorApp" />
@@ -136,12 +157,47 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestCalculator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalculatorApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.resilientplc.calculator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.resilientplc.calculator" />
+      <option name="MAIN_CLASS_NAME" value="com.resilientplc.calculator.TestCalculator" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCalculator.TestDivide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalculatorApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.resilientplc.calculator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.resilientplc.calculator" />
+      <option name="MAIN_CLASS_NAME" value="com.resilientplc.calculator.TestCalculator" />
+      <option name="METHOD_NAME" value="TestDivide" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.CalculatorApplication" />
+      <item itemvalue="JUnit.TestCalculator" />
+      <item itemvalue="JUnit.TestCalculator.TestDivide" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestCalculator" />
+        <item itemvalue="JUnit.TestCalculator.TestDivide" />
         <item itemvalue="Application.CalculatorApplication" />
         <item itemvalue="Application.Main" />
       </list>
@@ -160,11 +216,43 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="TestCalculator_TestDivide - 2019.01.21 at 11h 30m 34s.xml">
+      <configuration name="TestCalculator.TestDivide" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestCalculator_TestDivide - 2019.01.21 at 11h 30m 39s.xml">
+      <configuration name="TestCalculator.TestDivide" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestCalculator_TestDivide - 2019.01.21 at 11h 31m 08s.xml">
+      <configuration name="TestCalculator.TestDivide" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestCalculator_TestDivide - 2019.01.21 at 11h 31m 21s.xml">
+      <configuration name="TestCalculator.TestDivide" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestCalculator_TestDivide - 2019.01.21 at 11h 32m 49s.xml">
+      <configuration name="TestCalculator.TestDivide" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestCalculator_TestDivide - 2019.01.21 at 11h 33m 17s.xml">
+      <configuration name="TestCalculator.TestDivide" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestCalculator - 2019.01.21 at 11h 38m 38s.xml">
+      <configuration name="TestCalculator" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestCalculator - 2019.01.21 at 11h 44m 00s.xml">
+      <configuration name="TestCalculator" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestCalculator - 2019.01.21 at 11h 44m 52s.xml">
+      <configuration name="TestCalculator" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestCalculator - 2019.01.21 at 11h 45m 12s.xml">
+      <configuration name="TestCalculator" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
     <frame x="752" y="274" width="1741" height="1235" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1820345" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18441404" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -173,7 +261,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32910246" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32910246" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991655" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -181,8 +269,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32962447" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32962447" />
-      <window_info anchor="right" id="Maven" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32910246" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -193,6 +280,7 @@
       <window_info anchor="right" id="Flutter Outline" order="7" />
       <window_info anchor="right" id="Flutter Inspector" order="8" />
       <window_info anchor="right" id="Maven Projects" order="9" />
+      <window_info anchor="right" id="Maven" order="10" />
     </layout>
   </component>
   <component name="editorHistoryManager">
@@ -201,15 +289,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/resilientplc/calculator/Calculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="187">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#328#329#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/resilientplc/calculator/CalculatorApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="578">
+          <caret line="34" column="31" lean-forward="true" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/resilientplc/calculator/TestCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="78" lean-forward="true" selection-start-line="27" selection-start-column="78" selection-end-line="27" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
