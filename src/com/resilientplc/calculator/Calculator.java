@@ -16,4 +16,22 @@ public class Calculator {
 
     public int divide(int x, int y){ return x / y; }
 
+    public int expression (String operator){
+
+        int result = 0;
+        System.out.print(operator);
+/*
+        switch (operator)
+        {
+            case "+":
+                result = x + y;
+                break;
+            case "-":
+                result = x - y;
+                break;
+        }
+*/
+        return result;
+    }
+
 }

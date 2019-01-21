@@ -8,20 +8,33 @@ public class CalculatorApplication {
 
         Scanner input = new Scanner(System.in);
         CalculatorMenu menu = new CalculatorMenu();
+        String help;
 
         int val1 = 0, val2 = 0, result = 0;
+        String fullExpression;
 
-        String operation;                           // capture operation input from the user
-        Calculator cal = new Calculator();          //  a new calculator object for calculations
-
+        String operation;                           // capture operation input from the
+        Calculator cal = new Calculator();          // a new calculator object for calculations
         boolean open = true;                        // while the app is open
+
+        String menuSwitch;
 
         while (open) {
 
             try {
 
+                menuSwitch = input.next();
+
+                switch (menuSwitch) {
+                    case "help":
+                        menu.Help();
+                        break;
+                    case "exit":
+                        menu.Exit();
+                        break;
+                }
+
                 menu.CreateMenu();
-                menu.Help();
 
                 System.out.print("\nPlease enter your First number: ");
                 val1 = input.nextInt();
@@ -31,6 +44,7 @@ public class CalculatorApplication {
 
                 System.out.print("Please enter your Second number: ");
                 val2 = input.nextInt();
+
 
                 switch (operation) {
                     case "+":
@@ -62,12 +76,20 @@ public class CalculatorApplication {
                 // Display the Result
                 System.out.print("\nResult : " + " " + val1 + " " + operation + " " + val2 + " = " + result + "\n");
 
+                // Enter a full Expression Task 2
+                System.out.print("\n***************** Task 2 **********************");
+
+                System.out.print("\nPlease Enter a full expression\n");
+                fullExpression = input.next();  // need to change to capture the whole string and pass to calculator class
+                cal.expression(fullExpression);
+
             }
 
             catch (InputMismatchException e){
                 System.out.print("Please enter a valid number!!!\n");
-                input.nextLine();
+                input.next();
             }
+
         }
     }
 
