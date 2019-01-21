@@ -7,6 +7,8 @@ public class CalculatorApplication {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
+        CalculatorMenu menu = new CalculatorMenu();
+
         int val1 = 0, val2 = 0, result = 0;
 
         String operation;                           // capture operation input from the user
@@ -17,6 +19,8 @@ public class CalculatorApplication {
         while (open) {
 
             try {
+
+                menu.CreateMenu();
 
                 System.out.print("\nPlease enter your First number: ");
                 val1 = input.nextInt();
