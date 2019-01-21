@@ -21,6 +21,7 @@ public class CalculatorApplication {
             try {
 
                 menu.CreateMenu();
+                menu.Help();
 
                 System.out.print("\nPlease enter your First number: ");
                 val1 = input.nextInt();
