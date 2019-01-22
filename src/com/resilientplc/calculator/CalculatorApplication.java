@@ -12,7 +12,7 @@ public class CalculatorApplication {
 
         int val1 = 0, val2 = 0, result = 0;
         String menuOption;
-        String fullExpression;
+        String fullExpression = "";
 
         String operation = "";                      // capture operation input from the
         Calculator cal = new Calculator();          // a new calculator object for calculations
@@ -93,14 +93,6 @@ public class CalculatorApplication {
                // Display the Result
                System.out.print("\nResult : " + " " + val1 + " " + operation + " " + val2 + " = " + result + "\n");
 
-
-               // Enter a full Expression Task 2
-               System.out.print("\n***************** Task 2 **********************");
-
-               System.out.print("\nPlease Enter a full expression\n");
-               fullExpression = input.next();  // need to change to capture the whole string and pass to calculator class
-               cal.expression(fullExpression);
-
             }
 
            catch (InputMismatchException e){
@@ -109,15 +101,25 @@ public class CalculatorApplication {
                input.next();
            }
 
+            // Enter a full Expression Task 2
+            //System.out.print("\n***************** Task 2 **********************\n");
+
+            //System.out.print("\nPlease enter a full expression\n");
+            //fullExpression = input.nextLine();
+
+            // Display the Result
+            //System.out.print("Result : " +  cal.expression(fullExpression) + "\n");
         }
 
-        while (helpMenu){
+
+        while (helpMenu) {
 
             mainCalculator = true;
             menu.Help();
             menuOption = input.next();
 
         }
+
     }
 
 }
