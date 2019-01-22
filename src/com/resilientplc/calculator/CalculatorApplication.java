@@ -50,6 +50,19 @@ public class CalculatorApplication {
                     operation = input.next();
                 }
 
+                System.out.print("Please enter your Second number: ");
+
+                if (input.hasNext("help")){
+                    mainCalculator = false;
+                    helpMenu = true;
+                    break;
+                }else if (input.hasNext("exit")){
+                    mainCalculator = false;
+                    break;
+                }else {
+                    val2 = input.nextInt();
+                }
+
                 switch (operation) {
                     case "+":
                         result = cal.add(val1, val2);
@@ -67,19 +80,6 @@ public class CalculatorApplication {
                         System.out.print("Invalid Operation Selected");
                         break;
                     }
-
-               System.out.print("Please enter your Second number: ");
-
-                if (input.hasNext("help")){
-                    mainCalculator = false;
-                    helpMenu = true;
-                    break;
-                }else if (input.hasNext("exit")){
-                    mainCalculator = false;
-                    break;
-                }else {
-                    val2 = input.nextInt();
-                }
 
                //Display the first number value entered by the user
                System.out.print("\nFirst Number : " + val1 + "\n");
