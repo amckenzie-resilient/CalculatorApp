@@ -7,6 +7,8 @@ public class CalculatorApplication {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
+
         CalculatorMenu menu = new CalculatorMenu();
         String help;
 
@@ -102,13 +104,13 @@ public class CalculatorApplication {
            }
 
             // Enter a full Expression Task 2
-            //System.out.print("\n***************** Task 2 **********************\n");
+            System.out.print("\n***************** Task 2 **********************\n");
 
-            //System.out.print("\nPlease enter a full expression\n");
-            //fullExpression = input.nextLine();
+            System.out.print("\nPlease enter a full expression\n");
+            fullExpression = in.nextLine();
 
             // Display the Result
-            //System.out.print("Result : " +  cal.expression(fullExpression) + "\n");
+            System.out.print("\nResult: " + fullExpression + " = " +  cal.expression(fullExpression) + "\n");
         }
 
 
