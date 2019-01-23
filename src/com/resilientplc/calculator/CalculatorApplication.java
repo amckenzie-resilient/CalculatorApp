@@ -12,117 +12,94 @@ public class CalculatorApplication {
         Scanner in = new Scanner(System.in);
 
         Menu menu = new CalculatorMenu();
-
-        int val1 = 0, val2 = 0, result = 0;
-
-        String fullExpression = "";
-
-        String operation = "";                      // capture operation input from the
         Calculator cal = new Calculator();          // a new calculator object for calculations
-        boolean mainCalculator = true;              // while the app is open
-        boolean helpMenu = menu.IsActive();
 
-        while (mainCalculator) {
+        try {
 
             menu.CreateMenu();
 
-            try {
+            TaskOne(input, cal);
+            TaskTwo(in,cal);
 
-                System.out.print("\nPlease enter your First number: ");
-
-                if (input.hasNext("help")){
-                    mainCalculator = false;
-                    break;
-                }else if (input.hasNext("exit")){
-                    mainCalculator = false;
-                    break;
-                }else {
-                    val1 = input.nextInt();
-                }
-
-                System.out.print("Please enter a valid operation: ");
-                if (input.hasNext("help")) {
-                    mainCalculator = false;
-                    break;
-                }else if (input.hasNext("exit")){
-                    mainCalculator = false;
-                    break;
-                } else {
-                    operation = input.next();
-                }
-
-                System.out.print("Please enter your Second number: ");
-
-                if (input.hasNext("help")){
-                    mainCalculator = false;
-                   // menu.IsActive();
-                    break;
-                }else if (input.hasNext("exit")){
-                    mainCalculator = false;
-                    break;
-                }else {
-                    val2 = input.nextInt();
-                }
-
-                switch (operation) {
-                    case "+":
-                        result = cal.add(val1, val2);
-                        break;
-                    case "-":
-                        result = cal.subtract(val1, val2);
-                        break;
-                    case "*":
-                        result = cal.multiple(val1, val2);
-                        break;
-                     case "/":
-                        result = cal.divide(val1, val2);
-                        break;
-                     default:
-                        System.out.print("Invalid Operation Selected");
-                        break;
-                    }
-
-               //Display the first number value entered by the user
-               System.out.print("\nFirst Number : " + val1 + "\n");
-
-               // Display operation
-               System.out.print("Operation : " + operation + "\n");
-
-               //Display the second number value entered by the user
-               System.out.print("Second Number : " + val2 + "\n");
-
-               // Display the Result
-               System.out.print("\nResult : " + " " + val1 + " " + operation + " " + val2 + " = " + result + "\n");
-
-               // Enter a full Expression Task 2
-               System.out.print("\n***************** Task 2 **********************\n");
-
-               System.out.print("\nPlease enter a full expression\n");
-               fullExpression = in.nextLine();
-
-                // Display the Result
-                System.out.print("\nResult: " + fullExpression + " = " +  cal.expression(fullExpression) + "\n");
-            }
-
-           catch (InputMismatchException e){
-
-               System.out.print("Please enter a valid number!\n");
-               input.next();
-           }
-
-           catch (NumberFormatException e){
-               System.out.print("Incorrect Value Entered!");
-               in.nextLine();
-           }
-
+            TaskThree(); // to implement
         }
 
-        while (helpMenu) {
+        catch (InputMismatchException e){
 
-            menu.Help();
-            helpMenu = menu.IsInactive();
-
+            System.out.print("Please enter a valid number!\n");
+            input.next();
         }
+
+        catch (NumberFormatException e){
+            System.out.print("Incorrect Value Entered!");
+            in.nextLine();
+        }
+    }
+
+    public static void TaskOne(Scanner input, Calculator cal){
+
+        int firstNumber, secondNumber, result = 0;
+        String operation;
+
+        System.out.print("\nPlease enter your First number: ");
+        firstNumber = input.nextInt();
+
+        System.out.print("Please enter a valid operation: ");
+        operation = input.next();
+
+        System.out.print("Please enter your Second number: ");
+        secondNumber = input.nextInt();
+
+        //Display the first number value entered by the user
+        System.out.print("\nFirst Number : " + firstNumber + "\n");
+
+        // Display operation
+        System.out.print("Operation : " + operation + "\n");
+
+        //Display the second number value entered by the user
+        System.out.print("Second Number : " + secondNumber + "\n");
+
+
+        switch (operation) {
+            case "+":
+                result = cal.add(firstNumber, secondNumber);
+                break;
+            case "-":
+                result = cal.subtract(firstNumber, secondNumber);
+                break;
+            case "*":
+                result = cal.multiple(firstNumber, secondNumber);
+                break;
+            case "/":
+                result = cal.divide(firstNumber, secondNumber);
+                break;
+            default:
+                System.out.print("Invalid Operation Selected");     // need to change this!
+                break;
+        }
+
+        // Display the Result
+        System.out.print("\nResult : " + " " + firstNumber + " " + operation + " " + secondNumber + " = " + result + "\n");
+
+    }
+
+    public static void TaskTwo(Scanner in, Calculator cal){
+
+        String fullExpression;
+
+        // Enter a full Expression Task 2
+        System.out.print("\n***************** Task 2 **********************\n");
+
+        System.out.print("\nPlease enter a full expression\n");
+        fullExpression = in.nextLine();
+
+        // Display the Result
+        System.out.print("\nResult: " + fullExpression + " = " +  cal.expression(fullExpression) + "\n");
+
+    }
+
+    public static void TaskThree(){
+
     }
 
 }
