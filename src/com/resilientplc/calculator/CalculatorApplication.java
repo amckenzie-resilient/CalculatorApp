@@ -6,22 +6,47 @@ import java.util.Scanner;
 
 public class CalculatorApplication {
 
+    static int state = 1;
+    static Scanner input = new Scanner(System.in);
+
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System.in);
         Scanner in = new Scanner(System.in);
 
         Menu menu = new CalculatorMenu();
         Calculator cal = new Calculator();          // a new calculator object for calculations
 
+        boolean running = true;
+
         try {
 
             menu.CreateMenu();
 
-            TaskOne(input, cal);
-            TaskTwo(in,cal);
+                while(running) {
 
-            TaskThree(); // to implement
+                    switch (state) {
+                        case 1:
+                        TaskOne(input, cal);
+                        break;
+
+                        case 2:
+                        TaskTwo(input, cal);
+                        break;
+
+                        case 3:
+                        TaskThree();
+                        break;
+
+                        case 4:
+                        menu.Help();
+                        break;
+
+                        case 5:
+                        menu.Exit();
+                        break;
+                    }
+                }
         }
 
         catch (InputMismatchException e){
@@ -38,8 +63,8 @@ public class CalculatorApplication {
 
     public static void TaskOne(Scanner input, Calculator cal){
 
-        int firstNumber, secondNumber, result = 0;
-        String operation;
+        int firstNumber = 0, secondNumber = 0, result = 0;
+        String operation = "";
 
         System.out.print("\nPlease enter your First number: ");
         firstNumber = input.nextInt();
@@ -50,15 +75,10 @@ public class CalculatorApplication {
         System.out.print("Please enter your Second number: ");
         secondNumber = input.nextInt();
 
-        //Display the first number value entered by the user
-        System.out.print("\nFirst Number : " + firstNumber + "\n");
-
-        // Display operation
-        System.out.print("Operation : " + operation + "\n");
-
-        //Display the second number value entered by the user
-        System.out.print("Second Number : " + secondNumber + "\n");
-
+        String firstNum = String.format("First Number : " + firstNumber);
+        String op = String.format("\nOperation :  " +  operation);
+        String secondNum = String.format("\nSecond Number : " +  secondNumber);
+        //String finalResult = String.format("\nResult : " + " "  + firstNumber + " " + operation + " " + secondNumber + " = " + result + "\n");
 
         switch (operation) {
             case "+":
@@ -78,9 +98,20 @@ public class CalculatorApplication {
                 break;
         }
 
+        //Display the first number value entered by the user
+        System.out.print(firstNum);
+
+        // Display operation
+        System.out.print(op);
+
+        //Display the second number value entered by the user
+        System.out.print(secondNum);
+
         // Display the Result
+        //System.out.print(finalResult);
         System.out.print("\nResult : " + " " + firstNumber + " " + operation + " " + secondNumber + " = " + result + "\n");
 
+        state = 2;
     }
 
     public static void TaskTwo(Scanner in, Calculator cal){
