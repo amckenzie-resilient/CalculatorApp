@@ -1,7 +1,8 @@
 package com.resilientplc.calculator;
-import java.util.Scanner;
 
-public class CalculatorMenu {
+import Interfaces.Menu;
+
+public class CalculatorMenu implements Menu {
 
     public void CreateMenu(){
 
@@ -22,5 +23,9 @@ public class CalculatorMenu {
 
         System.exit(0);
     }
+
+    public Boolean IsActive(){ return true; }
+
+    public Boolean IsInactive(){ return false; }
 
 }
