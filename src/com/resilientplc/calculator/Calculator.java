@@ -2,21 +2,21 @@ package com.resilientplc.calculator;
 
 public class Calculator {
 
-    public int add (int x, int y){
+    public int Add (int x, int y){
         return x + y;
     }
 
-    public int subtract(int x, int y){
+    public int Subtract(int x, int y){
         return x - y;
     }
 
-    public int multiple(int x, int y){
+    public int Multiple(int x, int y){
         return x * y;
     }
 
-    public int divide(int x, int y){ return x / y; }
+    public int Divide(int x, int y){ return x / y; }
 
-    public int expression (String expression){
+    public int SingleExpression (String expression){
 
         int x,y,result = 0;
         String op;
@@ -30,16 +30,16 @@ public class Calculator {
 
         switch (op) {
             case "+":
-                result = cal.add(x, y);
+                result = cal.Add(x, y);
                 break;
             case "-":
-                result = cal.subtract(x, y);
+                result = cal.Subtract(x, y);
                 break;
             case "*":
-                result = cal.multiple(x, y);
+                result = cal.Multiple(x, y);
                 break;
             case "/":
-                result = cal.divide(x, y);
+                result = cal.Divide(x, y);
                 break;
             default:
                 System.out.print("Invalid Operation Selected");

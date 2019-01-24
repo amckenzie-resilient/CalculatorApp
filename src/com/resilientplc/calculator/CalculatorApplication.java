@@ -6,18 +6,16 @@ import java.util.Scanner;
 
 public class CalculatorApplication {
 
-    static int state = 1;
-    static Scanner input = new Scanner(System.in);
+    private static int state = 1;
+    private static Scanner input = new Scanner(System.in);
+    private static Calculator cal = new Calculator();            // a new calculator object for calculations
+    private static Scanner in = new Scanner(System.in);          //Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
 
-        //Scanner input = new Scanner(System.in);
-        Scanner in = new Scanner(System.in);
+       Menu menu = new CalculatorMenu();
 
-        Menu menu = new CalculatorMenu();
-        Calculator cal = new Calculator();          // a new calculator object for calculations
-
-        boolean running = true;
+       boolean running = true;
 
         try {
 
@@ -27,11 +25,11 @@ public class CalculatorApplication {
 
                     switch (state) {
                         case 1:
-                        TaskOne(input, cal);
+                        TaskOne();
                         break;
 
                         case 2:
-                        TaskTwo(input, cal);
+                        TaskTwo();
                         break;
 
                         case 3:
@@ -44,6 +42,10 @@ public class CalculatorApplication {
 
                         case 5:
                         menu.Exit();
+                        break;
+
+                        case 6:
+                        menu.Reset();
                         break;
                     }
                 }
@@ -59,21 +61,35 @@ public class CalculatorApplication {
             System.out.print("Incorrect Value Entered!");
             in.nextLine();
         }
+
+        if (input.hasNext("help")) {
+            state = 4;
+        }
+
+        if (input.hasNext("exit")){
+            state = 5;
+        }
+
+        if (input.hasNext("reset")){
+            state = 6;
+        }
+
     }
 
-    public static void TaskOne(Scanner input, Calculator cal){
+    public static void TaskOne(){
 
         int firstNumber = 0, secondNumber = 0, result = 0;
         String operation = "";
 
-        System.out.print("\nPlease enter your First number: ");
-        firstNumber = input.nextInt();
+            System.out.print("\nPlease enter your First number: ");
+            firstNumber = input.nextInt();
 
-        System.out.print("Please enter a valid operation: ");
-        operation = input.next();
+            System.out.print("Please enter a valid operation: ");
+            operation = input.next();
 
-        System.out.print("Please enter your Second number: ");
-        secondNumber = input.nextInt();
+            System.out.print("Please enter your Second number: ");
+            secondNumber = input.nextInt();
+
 
         String firstNum = String.format("First Number : " + firstNumber);
         String op = String.format("\nOperation :  " +  operation);
@@ -82,16 +98,16 @@ public class CalculatorApplication {
 
         switch (operation) {
             case "+":
-                result = cal.add(firstNumber, secondNumber);
+                result = cal.Add(firstNumber, secondNumber);
                 break;
             case "-":
-                result = cal.subtract(firstNumber, secondNumber);
+                result = cal.Subtract(firstNumber, secondNumber);
                 break;
             case "*":
-                result = cal.multiple(firstNumber, secondNumber);
+                result = cal.Multiple(firstNumber, secondNumber);
                 break;
             case "/":
-                result = cal.divide(firstNumber, secondNumber);
+                result = cal.Divide(firstNumber, secondNumber);
                 break;
             default:
                 System.out.print("Invalid Operation Selected");     // need to change this!
@@ -114,7 +130,7 @@ public class CalculatorApplication {
         state = 2;
     }
 
-    public static void TaskTwo(Scanner in, Calculator cal){
+    public static void TaskTwo(){
 
         String fullExpression;
 
@@ -125,11 +141,13 @@ public class CalculatorApplication {
         fullExpression = in.nextLine();
 
         // Display the Result
-        System.out.print("\nResult: " + fullExpression + " = " +  cal.expression(fullExpression) + "\n");
+        System.out.print("\nResult: " + fullExpression + " = " +  cal.SingleExpression(fullExpression) + "\n");
 
+        state = 3;
     }
 
     public static void TaskThree(){
+
 
     }
 

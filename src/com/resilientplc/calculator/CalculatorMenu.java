@@ -24,6 +24,10 @@ public class CalculatorMenu implements Menu {
         System.exit(0);
     }
 
+    public void Reset(){
+
+    }
+
     public Boolean IsActive(){
         return true;
     }
