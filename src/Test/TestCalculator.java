@@ -44,8 +44,15 @@ public class TestCalculator {
 
         assertEquals ("Divide function has returned an error! ", 1,(testCal.Divide(5, 5) ));
         assertEquals ("Divide function has returned an error!", 0,(testCal.Divide(0, 10) ));
-        //assertEquals ("Wrong Result returned in , ", 0,(test.divide(10, 0) ));  // need to add a check/error for dividing by zero!
         assertEquals ("Divide function has returned an error! ", 1,(testCal.Divide(-10, -10) ));
         assertEquals ("Divide function has returned an error!", 1,(testCal.Divide(10, 10) ));
+     }
+
+    @Test(expected=java.lang.ArithmeticException.class)
+    public void testDivideByZero() {
+
+        assertEquals ("Wrong Result returned in , ", 0,(testCal.Divide(10, 0) ));
+
     }
+
 }
