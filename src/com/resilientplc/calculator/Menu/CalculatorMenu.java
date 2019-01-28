@@ -1,4 +1,4 @@
-package com.resilientplc.calculator;
+package com.resilientplc.calculator.Menu;
 
 import Interfaces.Menu;
 

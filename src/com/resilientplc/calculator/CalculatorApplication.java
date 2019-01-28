@@ -1,6 +1,12 @@
 package com.resilientplc.calculator;
 
 import Interfaces.Menu;
+import com.resilientplc.calculator.Calculations.Calculator;
+import com.resilientplc.calculator.Menu.CalculatorMenu;
+import com.resilientplc.calculator.Tasks.TaskOne;
+import com.resilientplc.calculator.Tasks.TaskThree;
+import com.resilientplc.calculator.Tasks.TaskTwo;
+
 import java.util.Scanner;
 
 public abstract class CalculatorApplication {
@@ -14,27 +20,65 @@ public abstract class CalculatorApplication {
         int state;
         boolean running = true;
 
-        TaskOne task1 = new TaskOne();
-        TaskTwo task2 = new TaskTwo();
-        TaskThree task3 = new TaskThree();
+        CalculatorApplication taskone = new TaskOne();
+        CalculatorApplication tasktwo = new TaskTwo();
+        CalculatorApplication taskthree = new TaskThree();
+
 
         while (running) {
 
             menu.createMenu();
 
+            tasktwo.question();
+        }
+/*
+        while (running) {
+
+            menu.createMenu();
             state = input.nextInt();
 
             if (state == 1) {
-                task1.main(args);
+                taskone.question();
             } else if (state == 2) {
-                task2.main(args);
+                tasktwo.question();
             } else if (state == 3) {
-                task3.main(args);
+                taskthree.question();
             } else if (state == 4) {
                 running = false;
             }
-        }
+        }*/
     }
+
+    public static boolean help(String value){
+
+        if (value.contentEquals("help")) {
+            return true;
+        }
+        return false;
+    }
+
+    public String checkExpressionInput() {
+
+        String value = "";
+        boolean invalid = true;
+
+        while (invalid) {
+
+            try {
+                value =  input.nextLine();
+                invalid = false;
+
+            } catch (NumberFormatException e) {
+                System.out.print("Incorrect Value Entered!");
+                invalid = true;
+                input.nextLine();
+            }
+        }
+
+        return value;
+    }
+
+    public abstract void question();
 
 }
 
