@@ -4,54 +4,63 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-
 public class TestCalculator {
 
     Calculator testCal = new Calculator();
 
     @Test
-    public void TestAdd(){
+    public void testAdd(){
 
-        assertEquals ("Add function has returned an error! ", 7,(testCal.Add(5, 2) ));
-        assertEquals ("Add function has returned an error! ", 10,(testCal.Add(0, 10) ));
-        assertEquals ("Add function has returned an error! ", 10,(testCal.Add(10, 0) ));
-        assertEquals ("Add function has returned an error! ", -20,(testCal.Add(-10, -10) ));
-        assertEquals ("Add function has returned an error! ", 20,(testCal.Add(10, 10) ));
+        assertEquals ("Adding two numbers together returned an error! ", 7,(testCal.add(5, 2) ));
+        assertEquals ("Adding zero to ten returned an error! ", 10,(testCal.add(0, 10) ));
+        assertEquals ("Adding ten to zero returned an error! ", 10,(testCal.add(10, 0) ));
+        assertEquals ("Adding minus 10 together returned an error! ", -20,(testCal.add(-10, -10) ));
+        assertEquals ("Adding 10 by itself returned an error! ", 20,(testCal.add(10, 10) ));
     }
 
     @Test
-    public void TestSubtract(){
+    public void testSubtract(){
 
-        assertEquals ("Subtract function has returned an error! ", 0,(testCal.Subtract(5, 5) ));
-        assertEquals ("Subtract function has returned an error! ", -10,(testCal.Subtract(0, 10) ));
-        assertEquals ("Subtract function has returned an error! ", 10,(testCal.Subtract(10, 0) ));
-        assertEquals ("Subtract function has returned an error! ", 0,(testCal.Subtract(-10, -10) ));
-        assertEquals ("Subtract function has returned an error! ", 0,(testCal.Subtract(10, 10) ));
+        assertEquals ("Subtracting two numbers together returned an error! ", 0,(testCal.subtract(5, 5) ));
+        assertEquals ("Subtracting zero from ten returned an error!", -10,(testCal.subtract(0, 10) ));
+        assertEquals ("Subtracting ten from zero returned an error! ", 10,(testCal.subtract(10, 0) ));
+        assertEquals ("Subtracting minus 10 together returned an error! ", 0,(testCal.subtract(-10, -10) ));
+        assertEquals ("Subtracting 10 by itself returned an error!  ", 0,(testCal.subtract(10, 10) ));
     }
 
     @Test
-    public void TestMultiple(){
+    public void testMultiple(){
 
-        assertEquals ("Multiple function has returned an error!", 25,(testCal.Multiple(5, 5) ));
-        assertEquals ("Multiple function has returned an error!", 0,(testCal.Multiple(0, 10) ));
-        assertEquals ("Multiple function has returned an error! ", 0,(testCal.Multiple(10, 0) ));
-        assertEquals ("Multiple function has returned an error! ", 100,(testCal.Multiple(-10, -10) ));
-        assertEquals ("Multiple function has returned an error! ", 100,(testCal.Multiple(10, 10) ));
+        assertEquals ("Multiplying two numbers together returned an error!", 25,(testCal.multiple(5, 5) ));
+        assertEquals ("Multiplying zero from ten returned an error!", 0,(testCal.multiple(0, 10) ));
+        assertEquals ("Multiplying ten from zero returned an error!  ", 0,(testCal.multiple(10, 0) ));
+        assertEquals ("Multiplying minus 10 together returned an error! ", 100,(testCal.multiple(-10, -10) ));
+        assertEquals ("Multiplying 10 by itself returned an error! ", 100,(testCal.multiple(10, 10) ));
     }
 
     @Test
-    public void TestDivide(){
+    public void testDivide(){
 
-        assertEquals ("Divide function has returned an error! ", 1,(testCal.Divide(5, 5) ));
-        assertEquals ("Divide function has returned an error!", 0,(testCal.Divide(0, 10) ));
-        assertEquals ("Divide function has returned an error! ", 1,(testCal.Divide(-10, -10) ));
-        assertEquals ("Divide function has returned an error!", 1,(testCal.Divide(10, 10) ));
+        assertEquals ("Dividing two numbers together returned an error! ", 1,(testCal.divide(5, 5) ));
+        assertEquals ("Dividing zero from ten returned an error!", 0,(testCal.divide(0, 10) ));
+        assertEquals ("Dividing minus 10 together returned an error!", 1,(testCal.divide(-10, -10) ));
+        assertEquals ("Dividing 10 by itself returned an error!", 1,(testCal.divide(10, 10) ));
      }
 
     @Test(expected=java.lang.ArithmeticException.class)
     public void testDivideByZero() {
 
-        assertEquals ("Wrong Result returned in , ", 0,(testCal.Divide(10, 0) ));
+        assertEquals ("Wrong Result returned in , ", 0,(testCal.divide(10, 0) ));
+
+    }
+
+    @Test
+    public void testSingleExpression(){
+
+    }
+
+    @Test
+    public void testMultipleExpression(){
 
     }
 
