@@ -4,14 +4,20 @@ import Interfaces.Menu;
 
 public class CalculatorMenu implements Menu {
 
-    public void CreateMenu() {
+    public void createMenu() {
 
         System.out.print(" \n *********************************************\n " +
                 " -----  Andrae's Awesome Calculator App  -----\n " +
                 " *********************************************");
+
+        System.out.print("\nPlease select which task to view: \n");
+        System.out.print("1 - Task One \n");
+        System.out.print("2 - Task Two \n");
+        System.out.print("3 - Task Three \n");
+        System.out.print("4 - Exit the application \n");
     }
 
-    public void Help() {
+    public void help() {
 
         System.out.print("\nWelcome to Andrae's Awesome Calculator! \nThis Calculator allows the following: \n " +
                 "* Simple addition and subtraction - Enter 2 values with a + or - operator in-between \n " +
@@ -19,29 +25,13 @@ public class CalculatorMenu implements Menu {
                 "* A mathematical expression within a single operation and 2 numbers \n ");
     }
 
-    public void Exit() {
+    public void exit() {
 
         System.exit(0);
     }
 
-    public void Reset() {
+    public void reset() {
 
-    }
-
-    public Boolean IsActive() {
-        return true;
-    }
-
-    public Boolean IsInactive() {
-        return false;
-    }
-
-    public Boolean Activate() {
-        return true;
-    }
-
-    public Boolean DeActivate() {
-        return false;
     }
 
 }

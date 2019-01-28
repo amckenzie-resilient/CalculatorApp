@@ -1,12 +1,15 @@
 package com.resilientplc.calculator;
 
+import Interfaces.Menu;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class TaskTwo {
+public class TaskTwo extends CalculatorApplication {
 
     private static Calculator cal = new Calculator();
     private static Scanner input = new Scanner(System.in);
+    private static Menu menu = new CalculatorMenu();
 
     public static void main(String[] args) {
 
@@ -16,6 +19,7 @@ public class TaskTwo {
         try {
             System.out.print("\nPlease enter a full expression\n");
             fullExpression = input.nextLine();
+
 
             // Display the Result
             System.out.print("\nResult: " + fullExpression + " = " + cal.singleExpression(fullExpression) + "\n");

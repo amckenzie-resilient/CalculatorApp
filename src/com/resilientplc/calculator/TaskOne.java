@@ -1,50 +1,77 @@
 package com.resilientplc.calculator;
 
-import Interfaces.Menu;
-
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
-public class TaskOne {
+public class TaskOne extends CalculatorApplication{
 
-    private static Calculator cal = new Calculator();
-    private static Scanner input = new Scanner(System.in);
-    private static Menu menu = new CalculatorMenu();
+    private static int result = 0;
 
     public static void main(String[] args) {
 
-        int firstNumber = 0, secondNumber = 0;
-        String operation = "";
-        int result = 0;
-
-        menu.CreateMenu();
+        int firstNumber, secondNumber;
+        String operator;
 
         System.out.print("\n***************** Task 1 **********************\n");
 
-        try {
-            System.out.print("\nPlease enter your First number: ");
-            firstNumber = input.nextInt();
+        System.out.print("\nPlease enter your First number: ");
+        firstNumber = checkNumberInput();
 
-            System.out.print("Please enter a valid operation: ");
-            operation = input.next();
+        System.out.print("Please enter a valid operation: ");
+        operator = checkStringInput();
 
-            System.out.print("Please enter your Second number: ");
-            secondNumber = input.nextInt();
+        System.out.print("Please enter your Second number: ");
+        secondNumber = checkNumberInput();
+
+        System.out.print("First Number : " + firstNumber);
+        System.out.print("\nOperation :  " + operator);
+        System.out.print("\nSecond Number : " + secondNumber);
+
+        result = returnResult(firstNumber, operator, secondNumber);
+
+        // Display the Result
+        System.out.print("\nResult : " + " " + firstNumber + " " + operator + " " + secondNumber + " = " + result + "\n");
+    }
+
+    private static int checkNumberInput()
+    {
+        int val = 0;
+
+        try{
+            val = input.nextInt();
 
         } catch (InputMismatchException e) {
             System.out.print("Please enter a valid number!\n");
             input.next();
+        }
+
+        return val;
+    }
+
+    private static String checkStringInput()
+    {
+        String value = "";
+
+        try {
+            value = input.next();
+
+            if (value.contentEquals("help")) {
+
+                menu.help();
+            }
+
         } catch (NumberFormatException e) {
             System.out.print("Incorrect Value Entered!");
             input.nextLine();
+            isValid(false);
         }
 
-        String firstNum = String.format("First Number : " + firstNumber);
-        String op = String.format("\nOperation :  " + operation);
-        String secondNum = String.format("\nSecond Number : " + secondNumber);
-        //String finalResult = String.format("\nResult : " + " "  + firstNumber + " " + operation + " " + secondNumber + " = " + result + "\n");
+        return value;
+    }
 
-        switch (operation) {
+    private static int returnResult(int firstNumber, String op, int secondNumber)
+    {
+
+        switch (op) {
             case "+":
                 result = cal.add(firstNumber, secondNumber);
                 break;
@@ -57,22 +84,18 @@ public class TaskOne {
             case "/":
                 result = cal.divide(firstNumber, secondNumber);
                 break;
-            default:
-                System.out.print("Invalid Operation Selected");     // need to change this!
-                break;
         }
 
-        //Display the first number value entered by the user
-        System.out.print(firstNum);
+        return result;
+    }
 
-        // Display operation
-        System.out.print(op);
+    private static boolean isValid(boolean x){
 
-        //Display the second number value entered by the user
-        System.out.print(secondNum);
+        if(!x){
 
-        // Display the Result
-        //System.out.print(finalResult);
-        System.out.print("\nResult : " + " " + firstNumber + " " + operation + " " + secondNumber + " = " + result + "\n");
+            System.out.println("Try again! ");
+            return false;
+
+        }  else return true;
     }
 }

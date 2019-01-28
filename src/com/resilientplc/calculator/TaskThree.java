@@ -2,7 +2,7 @@ package com.resilientplc.calculator;
 
 import java.util.Scanner;
 
-public class TaskThree {
+public class TaskThree extends CalculatorApplication {
 
     private static Calculator cal = new Calculator();
     private static Scanner input = new Scanner(System.in);

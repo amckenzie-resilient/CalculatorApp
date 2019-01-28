@@ -1,4 +1,4 @@
-package Test;
+package Tests;
 import com.resilientplc.calculator.Calculator;
 import org.junit.Test;
 
