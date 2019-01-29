@@ -1,5 +1,8 @@
 package com.resilientplc.calculator.Calculations;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Calculator {
 
     public int add (int x, int y){
@@ -63,12 +66,23 @@ public class Calculator {
         String op;
         Calculator cal =  new Calculator();
 
-        String[] parts = expression.split("\\s+");
-        Integer[] ex;
+        Pattern pattern = Pattern.compile("\\s");
+        Matcher matcher = pattern.matcher(expression);
+        boolean spaceFound = matcher.find();
 
-        x = Integer.parseInt(parts[0]);
-        op = parts[1];
-        y = Integer.parseInt(parts[2]);
+        if (spaceFound) {
+
+            String[] parts = expression.split("\\s+");
+            x = Integer.parseInt(parts[0]);
+            op = parts[1];
+            y = Integer.parseInt(parts[2]);
+
+        } else {
+
+            x = Character.getNumericValue(expression.charAt(0));
+            op = Character.toString(expression.charAt(1));
+            y = Character.getNumericValue(expression.charAt(2));
+        }
 
         switch (op) {
             case "+":
