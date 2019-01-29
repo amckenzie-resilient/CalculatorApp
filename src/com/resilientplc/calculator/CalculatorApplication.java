@@ -12,8 +12,8 @@ import java.util.Scanner;
 public abstract class CalculatorApplication {
 
     public static Scanner input = new Scanner(System.in);
-    public static Calculator cal = new Calculator();
     public static Menu menu = new CalculatorMenu();
+    public static Calculator cal = new Calculator();
 
     public static void main(String[] args) {
 
@@ -24,14 +24,6 @@ public abstract class CalculatorApplication {
         CalculatorApplication tasktwo = new TaskTwo();
         CalculatorApplication taskthree = new TaskThree();
 
-
-        while (running) {
-
-            menu.createMenu();
-
-            tasktwo.question();
-        }
-/*
         while (running) {
 
             menu.createMenu();
@@ -46,7 +38,7 @@ public abstract class CalculatorApplication {
             } else if (state == 4) {
                 running = false;
             }
-        }*/
+        }
     }
 
     public static boolean help(String value){
@@ -57,7 +49,16 @@ public abstract class CalculatorApplication {
         return false;
     }
 
-    public String checkExpressionInput() {
+    public static boolean exit(String v){
+
+        if (v.contentEquals("exit")){
+            return true;
+        }
+
+        return false;
+    }
+
+    public static String checkExpressionInput() {
 
         String value = "";
         boolean invalid = true;

@@ -9,5 +9,4 @@ public interface Menu {
     public void reset();
     public void exit();
 
-
 }

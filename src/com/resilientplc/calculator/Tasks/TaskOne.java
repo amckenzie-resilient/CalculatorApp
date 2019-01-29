@@ -1,5 +1,6 @@
 package com.resilientplc.calculator.Tasks;
 
+import com.resilientplc.calculator.Calculations.Calculator;
 import com.resilientplc.calculator.CalculatorApplication;
 
 import java.util.InputMismatchException;
@@ -7,6 +8,7 @@ import java.util.InputMismatchException;
 public class TaskOne extends CalculatorApplication {
 
     private static int result = 0;
+    private static Calculator cal = new Calculator();
 
     @Override
     public void question(){
@@ -74,7 +76,7 @@ public class TaskOne extends CalculatorApplication {
         return val;
     }
 
-    public String checkStringInput() {
+    public static String checkStringInput() {
         String value = "";
         boolean invalid = true;
 
@@ -88,6 +90,8 @@ public class TaskOne extends CalculatorApplication {
                     menu.help();
                     System.out.print("Please enter a valid operation:");
                     invalid = true;
+                } else if (exit(value)){
+                    menu.exit();
                 } else if (value.contentEquals("+") || value.contentEquals("-") || value.contentEquals("*") || value.contentEquals("/")) {
                     invalid = false;
                 } else {
