@@ -32,8 +32,10 @@ public abstract class CalculatorApplication {
             if (state == 1) {
                 taskone.question();
             } else if (state == 2) {
+                input.nextLine();
                 tasktwo.question();
             } else if (state == 3) {
+                input.nextLine();
                 taskthree.question();
             } else if (state == 4) {
                 running = false;
@@ -49,12 +51,19 @@ public abstract class CalculatorApplication {
         return false;
     }
 
-    public static boolean exit(String v){
+    public static boolean exit(String value){
 
-        if (v.contentEquals("exit")){
+        if (value.contentEquals("exit")){
             return true;
         }
+        return false;
+    }
 
+    public static boolean reset(String value){
+
+        if (value.contentEquals("reset")){
+            return true;
+        }
         return false;
     }
 
@@ -64,7 +73,6 @@ public abstract class CalculatorApplication {
         boolean invalid = true;
 
         while (invalid) {
-
             try {
                 value =  input.nextLine();
                 invalid = false;
