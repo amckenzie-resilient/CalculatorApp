@@ -10,37 +10,69 @@ public class TaskOne extends CalculatorApp {
 
     private static int result = 0;
     private static Calculator cal = new Calculator();
-    public static Scanner input = new Scanner(System.in);
+    private static Scanner input = new Scanner(System.in);
+
+    private int firstNumber;
+    private int secondNumber;
+    private String operator;
 
     @Override
-    public void showQuestion(){
-
-        int firstNumber, secondNumber;
-        String operator;
+    public void showQuestion() {
 
         System.out.print("\n***************** Task 1 **********************\n");
 
         System.out.print("\nPlease enter your First number: ");
+        setFirstNumber();
 
-        firstNumber = checkNumberInput();
         System.out.print("Please enter a valid operator: ");
-        operator = checkStringInput();
+        setOperator();
 
         System.out.print("Please enter your Second number: ");
-        secondNumber = checkNumberInput();
+        setSecondNumber();
 
-        System.out.print("First Number : " + firstNumber);
-        System.out.print("\nOperator :  " + operator);
-        System.out.print("\nSecond Number : " + secondNumber);
+        System.out.print("First Number : " + getFirstNumber() + "\n");
+        System.out.print("Operator : " + getOperator() + "\n");
+        System.out.print("Second Number : " + getSecondNumber() + "\n" + "\n");
 
-        result = returnResult(firstNumber, operator, secondNumber);
+        result = getResult(getFirstNumber(), getOperator(), getSecondNumber());
 
         // Display the Result
-        System.out.print("\nResult : " + " " + firstNumber + " " + operator + " " + secondNumber + " = " + result + "\n");
+        System.out.print("Result : " + " " + getFirstNumber() + " " + getOperator() + " " + getSecondNumber() + " = " + result + "\n");
+
     }
 
-    private static int returnResult(int x, String op, int y)
+    private void setFirstNumber()
     {
+      firstNumber = input.nextInt();
+    }
+
+    private void setSecondNumber()
+    {
+      secondNumber = input.nextInt();
+    }
+
+    private void setOperator()
+    {
+      operator = input.next();
+    }
+
+    private int getFirstNumber()
+    {
+        return firstNumber;
+    }
+
+    private int getSecondNumber()
+    {
+        return secondNumber;
+    }
+
+    private String getOperator()
+    {
+        return operator;
+    }
+
+    private static int getResult(int x, String op, int y) {
+
         switch (op) {
             case "+":
                 result = cal.add(x, y);
@@ -52,82 +84,20 @@ public class TaskOne extends CalculatorApp {
                 result = cal.multiple(x, y);
                 break;
             case "/":
-                result = cal.divide(x, 7);
+                result = cal.divide(x, y);
                 break;
         }
+
         return result;
     }
-/*
-    public int checkNumberInput(int val) throws NumberInputException
-    {
-        if (val != (int)val)
-        {
-            throw new NumberInputException("Please enter a valid number!" + val);
-        }else {
-            val = input.nextInt();
-        }
 
-        return val;
-    }
- */
+    public int checkNumberInput(int val) throws InputMismatchException {
 
-    public int checkNumberInput()
-    {
-        int val = 0;
-        boolean invalid = true;
+        if (val != (int) val) {
 
-        while (invalid){
-
-            try{
-                val = input.nextInt();
-                invalid = false;
-
-            } catch (InputMismatchException e) {
-                System.out.print("Please enter a valid number!\n");
-                invalid = true;
-                input.next();
-            }
+            throw new InputMismatchException("Please enter a valid number" + val);
         }
         return val;
     }
 
-
-    public static String checkStringInput() {
-        String value = "";
-        boolean invalid = true;
-
-        while (invalid) {
-
-            try {
-
-                value = input.next();
-
-                if (help(value)) {
-                    menu.help();
-                    System.out.print("Please enter a valid operation:");
-                    invalid = true;
-                } else if (exit(value)){
-                    menu.exit();
-                } else if (value.contentEquals("+") || value.contentEquals("-") || value.contentEquals("*") || value.contentEquals("/")) {
-                    invalid = false;
-                } else {
-                    invalid = true;
-                    System.out.print("Please enter a valid operator:");
-                }
-
-            } catch (NumberFormatException e) {
-                System.out.print("Incorrect Value Entered!");
-                invalid = true;
-                input.nextLine();
-            }
-        }
-
-        return value;
-    }
 }
-
-
-
-
-
-

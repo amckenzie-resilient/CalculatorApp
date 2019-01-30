@@ -40,6 +40,26 @@ abstract public class CalculatorApp {
         return false;
     }
 
+    public static int checkNumberInput()
+    {
+        int val = 0;
+        boolean invalid = true;
+
+        while (invalid){
+
+            try{
+                val = input.nextInt();
+                invalid = false;
+
+            } catch (InputMismatchException e) {
+                System.out.print("Please enter a valid number!\n");
+                invalid = true;
+                input.next();
+            }
+        }
+        return val;
+    }
+
     public static String checkExpressionInput() {
 
         String value = "";
@@ -66,5 +86,39 @@ abstract public class CalculatorApp {
 
         return value;
     }
+
+    public static String checkStringInput() {
+        String value = "";
+        boolean invalid = true;
+
+        while (invalid) {
+
+            try {
+
+                value = input.next();
+
+                if (help(value)) {
+                    menu.help();
+                    System.out.print("Please enter a valid operation:");
+                    invalid = true;
+                } else if (exit(value)){
+                    menu.exit();
+                } else if (value.contentEquals("+") || value.contentEquals("-") || value.contentEquals("*") || value.contentEquals("/")) {
+                    invalid = false;
+                } else {
+                    invalid = true;
+                    System.out.print("Please enter a valid operator:");
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.print("Incorrect Value Entered!");
+                invalid = true;
+                input.nextLine();
+            }
+        }
+
+        return value;
+    }
+
 
 }
