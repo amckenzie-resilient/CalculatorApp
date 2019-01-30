@@ -1,10 +1,10 @@
 package com.resilientplc.calculator.Tasks;
 import com.resilientplc.calculator.CalculatorApplication;
 
-public class TaskThree extends CalculatorApplication {
+public class TaskThree extends CalculatorApp {
 
     @Override
-    public void question() {
+    public void showQuestion() {
 
         String mathematicalOp;
         int result;

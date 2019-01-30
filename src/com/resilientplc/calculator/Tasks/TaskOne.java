@@ -1,17 +1,19 @@
 package com.resilientplc.calculator.Tasks;
 
 import com.resilientplc.calculator.Calculations.Calculator;
-import com.resilientplc.calculator.CalculatorApplication;
+import com.resilientplc.calculator.ExceptionHandling.NumberInputException;
 
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
-public class TaskOne extends CalculatorApplication {
+public class TaskOne extends CalculatorApp {
 
     private static int result = 0;
     private static Calculator cal = new Calculator();
+    public static Scanner input = new Scanner(System.in);
 
     @Override
-    public void question(){
+    public void showQuestion(){
 
         int firstNumber, secondNumber;
         String operator;
@@ -19,8 +21,8 @@ public class TaskOne extends CalculatorApplication {
         System.out.print("\n***************** Task 1 **********************\n");
 
         System.out.print("\nPlease enter your First number: ");
-        firstNumber = checkNumberInput();
 
+        firstNumber = checkNumberInput();
         System.out.print("Please enter a valid operator: ");
         operator = checkStringInput();
 
@@ -37,24 +39,37 @@ public class TaskOne extends CalculatorApplication {
         System.out.print("\nResult : " + " " + firstNumber + " " + operator + " " + secondNumber + " = " + result + "\n");
     }
 
-    private static int returnResult(int firstNumber, String op, int secondNumber)
+    private static int returnResult(int x, String op, int y)
     {
         switch (op) {
             case "+":
-                result = cal.add(firstNumber, secondNumber);
+                result = cal.add(x, y);
                 break;
             case "-":
-                result = cal.subtract(firstNumber, secondNumber);
+                result = cal.subtract(x, y);
                 break;
             case "*":
-                result = cal.multiple(firstNumber, secondNumber);
+                result = cal.multiple(x, y);
                 break;
             case "/":
-                result = cal.divide(firstNumber, secondNumber);
+                result = cal.divide(x, 7);
                 break;
         }
         return result;
     }
+/*
+    public int checkNumberInput(int val) throws NumberInputException
+    {
+        if (val != (int)val)
+        {
+            throw new NumberInputException("Please enter a valid number!" + val);
+        }else {
+            val = input.nextInt();
+        }
+
+        return val;
+    }
+ */
 
     public int checkNumberInput()
     {
@@ -75,6 +90,7 @@ public class TaskOne extends CalculatorApplication {
         }
         return val;
     }
+
 
     public static String checkStringInput() {
         String value = "";

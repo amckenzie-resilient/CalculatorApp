@@ -21,6 +21,11 @@ public class Calculator {
 
     public int divide(int x, int y){ return x / y; }
 
+    public String operator (String s){
+
+        return s;
+    }
+
     public int multipleExpression(String expression){
 
         int result = 0;

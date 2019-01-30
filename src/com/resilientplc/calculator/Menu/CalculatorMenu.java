@@ -6,15 +6,10 @@ public class CalculatorMenu implements Menu {
 
     public void createMenu() {
 
-        System.out.print(" \n *********************************************\n " +
+        System.out.print(
+                " \n *********************************************\n " +
                 " -----  Andrae's Awesome Calculator App  -----\n " +
                 " *********************************************");
-
-        System.out.print("\nPlease select which task to view: \n");
-        System.out.print("1 - Task One \n");
-        System.out.print("2 - Task Two \n");
-        System.out.print("3 - Task Three \n");
-        System.out.print("4 - Exit the application \n");
     }
 
     public void help() {

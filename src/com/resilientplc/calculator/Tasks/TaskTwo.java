@@ -1,10 +1,10 @@
 package com.resilientplc.calculator.Tasks;
 import com.resilientplc.calculator.CalculatorApplication;
 
-public class TaskTwo extends CalculatorApplication {
+public class TaskTwo extends CalculatorApp {
 
     @Override
-    public void question() {
+    public void showQuestion() {
 
         String fullExpression;
         System.out.print("\n***************** Task 2 **********************\n");
