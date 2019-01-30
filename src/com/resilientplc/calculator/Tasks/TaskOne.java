@@ -7,13 +7,13 @@ import java.util.Scanner;
 
 public class TaskOne extends CalculatorApp {
 
-    private static int result = 0;
     private static Calculator cal = new Calculator();
     private static Scanner input = new Scanner(System.in);
 
     private int firstNumber;
     private int secondNumber;
     private String operator;
+    private int result = 0;
 
     @Override
     public void showQuestion() {
@@ -30,21 +30,43 @@ public class TaskOne extends CalculatorApp {
             System.out.print("Please enter your Second number: ");
             setSecondNumber();
 
-            System.out.print("First Number : " + getFirstNumber() + "\n");
-            System.out.print("Operator : " + getOperator() + "\n");
-            System.out.print("Second Number : " + getSecondNumber() + "\n" + "\n");
+            displayResult();
 
-            result = getResult(getFirstNumber(), getOperator(), getSecondNumber());
+            result = setResult();
 
             // Display the Result
-            System.out.print("Result : " + " " + getFirstNumber() + " " + getOperator() + " " + getSecondNumber() + " = " + result + "\n");
+            System.out.print("Result : " + " " + getFirstNumber() + " " + getOperator() + " " + getSecondNumber() + " = " + getResult() + "\n");
 
-        }catch ( InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.out.print("Not a number, please try again!");
-        }catch ( NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.print("Not a valid operator, please try again!");
         }
+    }
 
+    @Override
+    public String getOperator()
+    {
+        return operator;
+    }
+
+    @Override
+    public void setOperator()
+    {
+        operator = input.next();
+    }
+
+    @Override
+    public int getResult()
+    {
+        return result;
+    }
+
+    private void displayResult()
+    {
+        System.out.print("First Number : " + getFirstNumber() + "\n");
+        System.out.print("Operator : " + getOperator() + "\n");
+        System.out.print("Second Number : " + getSecondNumber() + "\n" + "\n");
     }
 
     private void setFirstNumber() throws InputMismatchException
@@ -57,11 +79,6 @@ public class TaskOne extends CalculatorApp {
       secondNumber = input.nextInt();
     }
 
-    private void setOperator()
-    {
-      operator = input.next();
-    }
-
     private int getFirstNumber()
     {
         return firstNumber;
@@ -72,28 +89,23 @@ public class TaskOne extends CalculatorApp {
         return secondNumber;
     }
 
-    private String getOperator()
-    {
-        return operator;
-    }
+    private int setResult() {
 
-    private static int getResult(int x, String op, int y) {
-
-        switch (op) {
+        switch (getOperator()) {
             case "+":
-                result = cal.add(x, y);
+                result = cal.add(getFirstNumber(),getSecondNumber());
                 break;
             case "-":
-                result = cal.subtract(x, y);
+                result = cal.subtract(getFirstNumber(),getSecondNumber());
                 break;
             case "*":
-                result = cal.multiple(x, y);
+                result = cal.multiple(getFirstNumber(),getSecondNumber());
                 break;
             case "/":
-                result = cal.divide(x, y);
+                result = cal.divide(getFirstNumber(), getSecondNumber());
                 break;
         }
-
         return result;
     }
+
 }

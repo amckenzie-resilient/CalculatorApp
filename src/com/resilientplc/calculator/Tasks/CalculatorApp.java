@@ -15,6 +15,9 @@ abstract public class CalculatorApp {
     public static Calculator cal = new Calculator();
 
     public abstract void showQuestion();
+    public abstract String getOperator();
+    public abstract void setOperator();
+    public abstract int getResult();
 
     public static boolean help(String value){
 
@@ -39,6 +42,7 @@ abstract public class CalculatorApp {
         }
         return false;
     }
+
 
     public static int checkNumberInput()
     {
