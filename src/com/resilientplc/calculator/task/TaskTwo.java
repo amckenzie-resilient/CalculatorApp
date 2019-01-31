@@ -71,6 +71,7 @@ public class TaskTwo extends CalculatorApp {
         }
     }
 
+    // Required to split the string
     private String getDelimiter(String str) {
 
         if (str.contains("+")) {
@@ -107,6 +108,7 @@ public class TaskTwo extends CalculatorApp {
         return fullExpression;
     }
 
+    // Finds the operator the user entered
     public String findOperator(String str) {
         if (str.contains("+")) {
             str = "+";
