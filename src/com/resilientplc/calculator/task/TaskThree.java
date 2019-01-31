@@ -1,50 +1,45 @@
 package com.resilientplc.calculator.task;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TaskThree extends CalculatorApp {
 
-    private String fullExpression;
+    private String expression;
     private String menuSelection;
 
     @Override
     public void showQuestion() {
 
-        String[] expression;
         String delimiter;
 
         System.out.print("\n***************** Task 3 **********************\n");
-
-        checkMenuSelectionInput();
 
         System.out.print("\nPlease enter a full mathematical operation\n");
 
         try {
             setExpression();
         } catch (Exception e) {
-            System.out.print("Error!");
+            System.out.print("Error attempting to set ");
         }
 
-        System.out.print(fullExpression);
+        System.out.print(expression);
 
+        findOperator(expression);
 
-        //delimiter = getDelimiter(getExpression());
-        //setOperator();
-        //System.out.print("operators" + operator );
-
-        //result = cal.multipleExpression(mathematicalOp);
     }
 
 
     @Override
     public void setOperator() {
-        operator = findOperator(getExpression());
+
     }
 
     @Override
     public void checkMenuSelectionInput() {
 
-        menuSelection = input.next();
+        menuSelection = input.nextLine();
         if (input.hasNextLine() == "help".contentEquals(menuSelection)) {
             menu.help();
         } else if (input.hasNextLine() == "exit".contentEquals(menuSelection)) {
@@ -56,11 +51,11 @@ public class TaskThree extends CalculatorApp {
     }
 
     private void setExpression() {
-        fullExpression = input.nextLine();
+        expression = input.nextLine();
     }
 
     private String getExpression() {
-        return fullExpression;
+        return expression;
     }
 
     private static String[] splitString(String string, String delimiter) {
@@ -77,6 +72,12 @@ public class TaskThree extends CalculatorApp {
     }
 
     public String findOperator(String str) {
+
+        Pattern pattern = Pattern.compile("\\*+");
+        Matcher matcher = pattern.matcher(expression);
+
+        boolean multiple = matcher.find();
+
         if (str.contains("+")) {
             str = "+";
         } else if (str.contains("-")) {

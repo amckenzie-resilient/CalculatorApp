@@ -1,6 +1,5 @@
 package com.resilientplc.calculator.task;
 
-import java.util.Scanner;
 
 public class TaskTwo extends CalculatorApp {
 
@@ -18,7 +17,7 @@ public class TaskTwo extends CalculatorApp {
 
         System.out.print("\n***************** Task 2 **********************\n");
 
-        checkMenuSelectionInput();
+        //checkMenuSelectionInput();
 
         System.out.print("\nPlease enter an expression of type number operator number\n");
 

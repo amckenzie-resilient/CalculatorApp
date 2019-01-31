@@ -24,7 +24,7 @@ public class TaskOne extends CalculatorApp {
 
         System.out.print("\n***************** Task 1 **********************\n");
 
-        checkMenuSelectionInput();
+        //checkMenuSelectionInput();
 
         while (!count) {
 
