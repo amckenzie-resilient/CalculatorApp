@@ -4,68 +4,77 @@ import com.resilientplc.calculator.Calculations.Calculator;
 public class TaskTwo extends CalculatorApp {
 
     private String fullExpression;
-    private String operator;
-
-    private static Calculator cal = new Calculator();
     private int firstNumber;
     private int secondNumber;
-    private int result = 0;
 
     @Override
     public void showQuestion() {
+
+        String [] expression;
+        String delimiter;
 
         System.out.print("\n***************** Task 2 **********************\n");
 
         System.out.print("\nPlease enter a full expression\n");
 
         try {
-            setFullExpression();
+            setExpression();
         }catch (Exception e){
             System.out.print("Error!");
         }
 
-        //splitString(fullExpression);
+        delimiter = getDelimiter(getExpression());
+        expression = splitString(fullExpression, delimiter);
+        setOperator();
 
-        //System.out.print("What is the first number: " + firstNumber);
-        //System.out.print("What is the second number: " + secondNumber);
+        firstNumber = Integer.parseInt(expression[0]);
+        secondNumber = Integer.parseInt(expression[1]);
 
-        //result = setResult();
+        result = setResult();
 
         // Display the Result
-        //System.out.print("\nResult: " + getFullExpression() + " = " + cal.singleExpression(getFullExpression()) + "\n");
+        System.out.print("\nResult: " + getExpression() + " = " + result + "\n");
     }
 
     @Override
     public void setOperator()
     {
-        operator = findOperator(getFullExpression());
+        operator = findOperator(getExpression());
     }
 
-    @Override
-    public String getOperator()
-    {
-        return operator;
+    private String getDelimiter(String str){
+
+        if( str.contains("+")) {
+            str = "\\++";
+        }else if ( str.contains("-")){
+            str = "\\-+";
+        }else if ( str.contains("*")){
+            str = "\\*+";
+        }else if ( str.contains("/")){
+            str = "\\/+";
+        }
+
+        return str;
     }
 
-    @Override
-    public int getResult()
-    {
+    private static String[] splitString(String string, String delimiter) {
+
+        String[] result = string.split(delimiter);
+
+        int array_length = result.length;
+
+        for (int i = 0; i < array_length; i++) {
+            result[i] = result[i].trim();
+        }
+
         return result;
     }
 
-    private void splitString(String s){
-
-        String[] parts = s.split("\\d+");
-
-        firstNumber = Integer.parseInt(parts[0]);
-        secondNumber = Integer.parseInt(parts[2]);
-    }
-
-    private void setFullExpression(){
+    private void setExpression(){
         fullExpression = input.nextLine();
     }
 
-    private String getFullExpression()
+    private String getExpression()
     {
         return fullExpression;
     }
@@ -83,6 +92,35 @@ public class TaskTwo extends CalculatorApp {
         }
 
         return str;
+    }
+
+    private int getFirstNumber()
+    {
+        return firstNumber;
+    }
+
+    private int getSecondNumber()
+    {
+        return secondNumber;
+    }
+
+    private int setResult() {
+
+        switch (getOperator()) {
+            case "+":
+                result = cal.add(getFirstNumber(),getSecondNumber());
+                break;
+            case "-":
+                result = cal.subtract(getFirstNumber(),getSecondNumber());
+                break;
+            case "*":
+                result = cal.multiple(getFirstNumber(),getSecondNumber());
+                break;
+            case "/":
+                result = cal.divide(getFirstNumber(), getSecondNumber());
+                break;
+        }
+        return result;
     }
 
 }

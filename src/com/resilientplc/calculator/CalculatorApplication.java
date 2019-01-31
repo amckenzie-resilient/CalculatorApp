@@ -13,6 +13,7 @@ public class CalculatorApplication {
 
         boolean running = true;
 
+
         CalculatorApp taskOne = new TaskOne();
         CalculatorApp taskTwo = new TaskTwo();
         CalculatorApp taskThree = new TaskThree();
@@ -23,7 +24,7 @@ public class CalculatorApplication {
             showMenu(menu);
 
             show(taskOne);
-            show(taskTwo);
+            //show(taskTwo);
             show(taskThree);
         }
     }

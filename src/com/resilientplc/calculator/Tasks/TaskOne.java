@@ -1,6 +1,7 @@
 package com.resilientplc.calculator.Tasks;
 
 import com.resilientplc.calculator.Calculations.Calculator;
+import com.resilientplc.calculator.ExceptionHandling.OperatorInputException;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -12,57 +13,69 @@ public class TaskOne extends CalculatorApp {
 
     private int firstNumber;
     private int secondNumber;
-    private String operator;
-    private int result = 0;
 
     @Override
     public void showQuestion() {
 
+        int count = 0;
+
         System.out.print("\n***************** Task 1 **********************\n");
 
-        System.out.print("\nPlease enter your First number: ");
+        do {
 
-        try {
-            setFirstNumber();
-            System.out.print("Please enter a valid operator: ");
-            setOperator();
+            if(count == 0) {
+                System.out.print("\nPlease enter your First number: ");
 
-            System.out.print("Please enter your Second number: ");
-            setSecondNumber();
+                try {
+                    setFirstNumber();
+                    count = 1;
 
-            displayResult();
+                } catch (Exception e) {
+                    System.out.print("Please enter a integer");
+                    count = 0;
+                }
+            }
+
+            if(count == 1)
+            {
+                System.out.print("Please enter a valid operator: ");
+
+                try {
+                    setOperator();
+                } catch (OperatorInputException e) {
+                    System.out.print(e.getMessage());
+                }
+
+                System.out.print("Please enter your Second number: ");
+                try {
+                    setSecondNumber();
+                } catch (Exception e) {
+                    System.out.print("Please enter a integer");
+                }
+            }
+        }while(count < 3);
+
+            displayValuesReturned();
 
             result = setResult();
 
             // Display the Result
             System.out.print("Result : " + " " + getFirstNumber() + " " + getOperator() + " " + getSecondNumber() + " = " + getResult() + "\n");
 
-        } catch (InputMismatchException e) {
-            System.out.print("Not a number, please try again!");
-        } catch (NumberFormatException e) {
-            System.out.print("Not a valid operator, please try again!");
+    }
+
+    @Override
+    public void setOperator() throws OperatorInputException
+    {
+        operator = input.next();
+
+        if (!"+".contentEquals(operator) && (!"-".contentEquals(operator)) && (!"*".contentEquals(operator))
+        && (!"/".contentEquals(operator))) {
+            throw new OperatorInputException("Wrong operator type entered!!!");
         }
     }
 
-    @Override
-    public String getOperator()
-    {
-        return operator;
-    }
-
-    @Override
-    public void setOperator()
-    {
-        operator = input.next();
-    }
-
-    @Override
-    public int getResult()
-    {
-        return result;
-    }
-
-    private void displayResult()
+    private void displayValuesReturned()
     {
         System.out.print("First Number : " + getFirstNumber() + "\n");
         System.out.print("Operator : " + getOperator() + "\n");
@@ -76,13 +89,10 @@ public class TaskOne extends CalculatorApp {
 
     private void setSecondNumber() throws InputMismatchException
     {
-      secondNumber = input.nextInt();
+        secondNumber = input.nextInt();
     }
 
-    private int getFirstNumber()
-    {
-        return firstNumber;
-    }
+    private int getFirstNumber(){ return firstNumber;}
 
     private int getSecondNumber()
     {

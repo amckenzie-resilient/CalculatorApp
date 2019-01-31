@@ -3,9 +3,9 @@ package com.resilientplc.calculator.Tasks;
 
 import Interfaces.Menu;
 import com.resilientplc.calculator.Calculations.Calculator;
+import com.resilientplc.calculator.ExceptionHandling.OperatorInputException;
 import com.resilientplc.calculator.Menu.CalculatorMenu;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 abstract public class CalculatorApp {
@@ -13,11 +13,21 @@ abstract public class CalculatorApp {
     public static Scanner input = new Scanner(System.in);
     public static Menu menu = new CalculatorMenu();
     public static Calculator cal = new Calculator();
+    public static String operator;
+    public static int result = 0;
 
     public abstract void showQuestion();
-    public abstract String getOperator();
-    public abstract void setOperator();
-    public abstract int getResult();
+    public abstract void setOperator() throws OperatorInputException;
+
+    public String getOperator()
+    {
+        return operator;
+    }
+
+    public int getResult()
+    {
+        return result;
+    }
 
     public static boolean help(String value){
 
@@ -41,87 +51,6 @@ abstract public class CalculatorApp {
             return true;
         }
         return false;
-    }
-
-
-    public static int checkNumberInput()
-    {
-        int val = 0;
-        boolean invalid = true;
-
-        while (invalid){
-
-            try{
-                val = input.nextInt();
-                invalid = false;
-
-            } catch (InputMismatchException e) {
-                System.out.print("Please enter a valid number!\n");
-                invalid = true;
-                input.next();
-            }
-        }
-        return val;
-    }
-
-    public static String checkExpressionInput() {
-
-        String value = "";
-        boolean invalid = true;
-
-        while (invalid) {
-            try {
-                value =  input.nextLine();
-
-                if(help(value)){
-                    menu.help();
-                    invalid = true;
-
-                }else {
-
-                invalid = false;}
-
-            } catch (NumberFormatException e) {
-                System.out.print("Incorrect Value Entered!");
-                invalid = true;
-                input.nextLine();
-            }
-        }
-
-        return value;
-    }
-
-    public static String checkStringInput() {
-        String value = "";
-        boolean invalid = true;
-
-        while (invalid) {
-
-            try {
-
-                value = input.next();
-
-                if (help(value)) {
-                    menu.help();
-                    System.out.print("Please enter a valid operation:");
-                    invalid = true;
-                } else if (exit(value)){
-                    menu.exit();
-                } else if (value.contentEquals("+") || value.contentEquals("-") || value.contentEquals("*") || value.contentEquals("/")) {
-                    invalid = false;
-                } else {
-                    invalid = true;
-                    System.out.print("Please enter a valid operator:");
-                }
-
-            } catch (NumberFormatException e) {
-                System.out.print("Incorrect Value Entered!");
-                invalid = true;
-                input.nextLine();
-            }
-        }
-
-        return value;
     }
 
 

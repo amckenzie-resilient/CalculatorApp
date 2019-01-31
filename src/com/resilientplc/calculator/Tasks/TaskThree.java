@@ -3,57 +3,76 @@ import com.resilientplc.calculator.CalculatorApplication;
 
 public class TaskThree extends CalculatorApp {
 
-    private String operator;
-    private int result = 0;
-
-    private String mathematicalOp;
+    private String fullExpression;
 
     @Override
     public void showQuestion() {
 
+        String [] expression;
+        String delimiter;
 
-        // Enter a full Expression Task 3
         System.out.print("\n***************** Task 3 **********************\n");
 
         System.out.print("\nPlease enter a full mathematical operation\n");
 
         try {
-            setMathematicalExpression();
+            setExpression();
         }catch (Exception e){
             System.out.print("Error!");
         }
 
+        System.out.print(fullExpression);
+
+
+        //delimiter = getDelimiter(getExpression());
+        //setOperator();
+        //System.out.print("operators" + operator );
+
         //result = cal.multipleExpression(mathematicalOp);
     }
 
-    @Override
-    public String getOperator()
-    {
-        return operator;
-    }
-
-    @Override
-    public int getResult()
-    {
-        return result;
-    }
 
     @Override
     public void setOperator()
     {
-
+        operator = findOperator(getExpression());
     }
 
-    private void setMathematicalExpression(){
-
-        mathematicalOp = input.nextLine();
+    private void setExpression(){
+        fullExpression = input.nextLine();
     }
 
-    private String getMatemticalExpression()
+    private String getExpression()
     {
-        return mathematicalOp;
+        return fullExpression;
     }
 
+    private static String[] splitString(String string, String delimiter) {
 
+        String[] result = string.split(delimiter);
+
+        int array_length = result.length;
+
+        for (int i = 0; i < array_length; i++) {
+            result[i] = result[i].trim();
+        }
+
+        return result;
+    }
+
+    public String findOperator (String str)
+    {
+        if( str.contains("+")) {
+            str = "+";
+        }else if ( str.contains("-")){
+            str = "-";
+        }else if ( str.contains("*")){
+            str = "*";
+        }else if ( str.contains("/")){
+            str = "/";
+        }
+
+        return str;
+    }
 
 }

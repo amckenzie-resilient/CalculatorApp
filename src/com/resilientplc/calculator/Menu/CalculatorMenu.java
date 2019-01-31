@@ -21,12 +21,12 @@ public class CalculatorMenu implements Menu {
     }
 
     public void exit() {
-
         System.exit(0);
     }
 
     public void reset() {
-
+        Runtime r = Runtime.getRuntime();
+        //r.exec("cls");
     }
 
 }
