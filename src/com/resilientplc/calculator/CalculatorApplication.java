@@ -23,9 +23,9 @@ public class CalculatorApplication {
 
             showMenu(menu);
 
-            show(taskOne);
+            //show(taskOne);
             show(taskTwo);
-            show(taskThree);
+            //show(taskThree);
         }
     }
 

@@ -14,20 +14,29 @@ public class TaskTwo extends CalculatorApp {
 
         System.out.print("\n***************** Task 2 **********************\n");
 
-        System.out.print("\nPlease enter a full expression\n");
+        System.out.print("\nPlease enter an expression of type number operator number\n");
 
         try {
             setExpression();
+
         }catch (Exception e){
-            System.out.print("Error!");
+            System.out.print("Error please !");
         }
 
         delimiter = getDelimiter(getExpression());
         expression = splitString(fullExpression, delimiter);
+
         setOperator();
 
-        firstNumber = Integer.parseInt(expression[0]);
-        secondNumber = Integer.parseInt(expression[1]);
+        int array_length = expression.length;
+
+        for (int i = 0; i < array_length; i++) {
+            if(i == 0) {
+                firstNumber = Integer.parseInt(expression[i]); }
+            if(i == 1) {
+                secondNumber = Integer.parseInt(expression[i]);
+            }
+        }
 
         result = setResult();
 
@@ -70,7 +79,9 @@ public class TaskTwo extends CalculatorApp {
     }
 
     private void setExpression(){
+
         fullExpression = input.nextLine();
+
     }
 
     private String getExpression()
