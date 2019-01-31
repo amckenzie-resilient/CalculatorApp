@@ -1,10 +1,10 @@
-package com.resilientplc.calculator.Tasks;
+package com.resilientplc.calculator.task;
 
 
-import Interfaces.Menu;
-import com.resilientplc.calculator.Calculations.Calculator;
-import com.resilientplc.calculator.ExceptionHandling.OperatorInputException;
-import com.resilientplc.calculator.Menu.CalculatorMenu;
+import com.resilientplc.calculator.menu.Menu;
+import com.resilientplc.calculator.calculation.Calculator;
+import com.resilientplc.calculator.exceptionHandling.OperatorInputException;
+import com.resilientplc.calculator.menu.CalculatorMenu;
 
 import java.util.Scanner;
 

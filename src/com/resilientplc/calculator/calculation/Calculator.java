@@ -1,4 +1,4 @@
-package com.resilientplc.calculator.Calculations;
+package com.resilientplc.calculator.calculation;
 
 public class Calculator {
 

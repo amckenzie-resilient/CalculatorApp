@@ -1,7 +1,7 @@
-package com.resilientplc.calculator.Tasks;
+package com.resilientplc.calculator.task;
 
-import com.resilientplc.calculator.Calculations.Calculator;
-import com.resilientplc.calculator.ExceptionHandling.OperatorInputException;
+import com.resilientplc.calculator.calculation.Calculator;
+import com.resilientplc.calculator.exceptionHandling.OperatorInputException;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -17,43 +17,51 @@ public class TaskOne extends CalculatorApp {
     @Override
     public void showQuestion() {
 
-        int count = 0;
+        boolean count = false;
+        int num = 0;
 
         System.out.print("\n***************** Task 1 **********************\n");
 
-        do {
+            while (!count) {
 
-            if(count == 0) {
                 System.out.print("\nPlease enter your First number: ");
-
                 try {
-                    setFirstNumber();
-                    count = 1;
+                      setFirstNumber();
+                      count = true;
 
                 } catch (Exception e) {
-                    System.out.print("Please enter a integer");
-                    count = 0;
+                    System.out.print("Please enter a valid number!!!");
+                    input.next();
                 }
             }
 
-            if(count == 1)
-            {
-                System.out.print("Please enter a valid operator: ");
+            count = false;
+
+            while (!count) {
+                System.out.print("\nPlease enter a valid operator: ");
 
                 try {
                     setOperator();
+                    count = true;
                 } catch (OperatorInputException e) {
                     System.out.print(e.getMessage());
-                }
-
-                System.out.print("Please enter your Second number: ");
-                try {
-                    setSecondNumber();
-                } catch (Exception e) {
-                    System.out.print("Please enter a integer");
+                    input.nextLine();
                 }
             }
-        }while(count < 3);
+
+            count = false;
+
+            while (!count) {
+
+                System.out.print("\nPlease enter your Second number: ");
+                try {
+                    setSecondNumber();
+                    count = true;
+                } catch (Exception e) {
+                    System.out.print("Please enter a integer");
+                    input.next();
+                }
+            }
 
             displayValuesReturned();
 
@@ -71,7 +79,7 @@ public class TaskOne extends CalculatorApp {
 
         if (!"+".contentEquals(operator) && (!"-".contentEquals(operator)) && (!"*".contentEquals(operator))
         && (!"/".contentEquals(operator))) {
-            throw new OperatorInputException("Wrong operator type entered!!!");
+            throw new OperatorInputException(" Please enter a valued operator type!");
         }
     }
 

@@ -1,4 +1,4 @@
-package com.resilientplc.calculator.ExceptionHandling;
+package com.resilientplc.calculator.exceptionHandling;
 
 public class NumberInputException extends Exception {
 

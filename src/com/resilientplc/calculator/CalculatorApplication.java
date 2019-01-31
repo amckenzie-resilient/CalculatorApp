@@ -1,11 +1,11 @@
 package com.resilientplc.calculator;
 
-import Interfaces.Menu;
-import com.resilientplc.calculator.Menu.CalculatorMenu;
-import com.resilientplc.calculator.Tasks.CalculatorApp;
-import com.resilientplc.calculator.Tasks.TaskOne;
-import com.resilientplc.calculator.Tasks.TaskThree;
-import com.resilientplc.calculator.Tasks.TaskTwo;
+import com.resilientplc.calculator.menu.Menu;
+import com.resilientplc.calculator.menu.CalculatorMenu;
+import com.resilientplc.calculator.task.CalculatorApp;
+import com.resilientplc.calculator.task.TaskOne;
+import com.resilientplc.calculator.task.TaskThree;
+import com.resilientplc.calculator.task.TaskTwo;
 
 public class CalculatorApplication {
 
@@ -24,7 +24,7 @@ public class CalculatorApplication {
             showMenu(menu);
 
             show(taskOne);
-            //show(taskTwo);
+            show(taskTwo);
             show(taskThree);
         }
     }

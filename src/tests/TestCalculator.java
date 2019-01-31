@@ -1,5 +1,5 @@
-package Tests;
-import com.resilientplc.calculator.Calculations.Calculator;
+package tests;
+import com.resilientplc.calculator.calculation.Calculator;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

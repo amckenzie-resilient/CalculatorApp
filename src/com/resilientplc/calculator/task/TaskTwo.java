@@ -1,5 +1,4 @@
-package com.resilientplc.calculator.Tasks;
-import com.resilientplc.calculator.Calculations.Calculator;
+package com.resilientplc.calculator.task;
 
 public class TaskTwo extends CalculatorApp {
 

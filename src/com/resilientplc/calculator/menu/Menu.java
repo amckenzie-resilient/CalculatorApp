@@ -1,4 +1,4 @@
-package Interfaces;
+package com.resilientplc.calculator.menu;
 
 public interface Menu {
 

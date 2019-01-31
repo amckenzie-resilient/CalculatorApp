@@ -1,6 +1,4 @@
-package com.resilientplc.calculator.Menu;
-
-import Interfaces.Menu;
+package com.resilientplc.calculator.menu;
 
 public class CalculatorMenu implements Menu {
 
