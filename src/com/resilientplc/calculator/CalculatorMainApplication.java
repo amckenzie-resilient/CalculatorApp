@@ -7,12 +7,11 @@ import com.resilientplc.calculator.task.TaskOne;
 import com.resilientplc.calculator.task.TaskThree;
 import com.resilientplc.calculator.task.TaskTwo;
 
-public class CalculatorApplication {
+public class CalculatorMainApplication {
 
     public static void main(String[] args) {
 
         boolean running = true;
-
 
         CalculatorApp taskOne = new TaskOne();
         CalculatorApp taskTwo = new TaskTwo();
@@ -23,9 +22,9 @@ public class CalculatorApplication {
 
             showMenu(menu);
 
-            //show(taskOne);
+            show(taskOne);
             show(taskTwo);
-            //show(taskThree);
+            show(taskThree);
         }
     }
 

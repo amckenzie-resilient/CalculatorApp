@@ -1,13 +1,17 @@
 package com.resilientplc.calculator.menu;
 
+import java.io.IOException;
+
+import static jdk.nashorn.internal.runtime.ScriptingFunctions.exec;
+
 public class CalculatorMenu implements Menu {
 
     public void createMenu() {
 
         System.out.print(
                 " \n *********************************************\n " +
-                " -----  Andrae's Awesome Calculator App  -----\n " +
-                " *********************************************");
+                        " -----  Andrae's Awesome Calculator App  -----\n " +
+                        " *********************************************");
     }
 
     public void help() {
@@ -23,8 +27,15 @@ public class CalculatorMenu implements Menu {
     }
 
     public void reset() {
+
         Runtime r = Runtime.getRuntime();
-        //r.exec("cls");
+
+        try {
+            r.exec("cls");
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
     }
 
 }

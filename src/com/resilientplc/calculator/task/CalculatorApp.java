@@ -17,19 +17,20 @@ abstract public class CalculatorApp {
     public static int result = 0;
 
     public abstract void showQuestion();
+
+    public abstract void checkMenuSelectionInput();
+
     public abstract void setOperator() throws OperatorInputException;
 
-    public String getOperator()
-    {
+    public String getOperator() {
         return operator;
     }
 
-    public int getResult()
-    {
+    public int getResult() {
         return result;
     }
 
-    public static boolean help(String value){
+    public static boolean help(String value) {
 
         if (value.contentEquals("help")) {
             return true;
@@ -37,17 +38,17 @@ abstract public class CalculatorApp {
         return false;
     }
 
-    public static boolean exit(String value){
+    public static boolean exit(String value) {
 
-        if (value.contentEquals("exit")){
+        if (value.contentEquals("exit")) {
             return true;
         }
         return false;
     }
 
-    public static boolean reset(String value){
+    public static boolean reset(String value) {
 
-        if (value.contentEquals("reset")){
+        if (value.contentEquals("reset")) {
             return true;
         }
         return false;

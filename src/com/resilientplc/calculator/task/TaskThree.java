@@ -1,22 +1,27 @@
 package com.resilientplc.calculator.task;
 
+import java.util.Scanner;
+
 public class TaskThree extends CalculatorApp {
 
     private String fullExpression;
+    private String menuSelection;
 
     @Override
     public void showQuestion() {
 
-        String [] expression;
+        String[] expression;
         String delimiter;
 
         System.out.print("\n***************** Task 3 **********************\n");
+
+        checkMenuSelectionInput();
 
         System.out.print("\nPlease enter a full mathematical operation\n");
 
         try {
             setExpression();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.print("Error!");
         }
 
@@ -32,17 +37,29 @@ public class TaskThree extends CalculatorApp {
 
 
     @Override
-    public void setOperator()
-    {
+    public void setOperator() {
         operator = findOperator(getExpression());
     }
 
-    private void setExpression(){
+    @Override
+    public void checkMenuSelectionInput() {
+
+        menuSelection = input.next();
+        if (input.hasNextLine() == "help".contentEquals(menuSelection)) {
+            menu.help();
+        } else if (input.hasNextLine() == "exit".contentEquals(menuSelection)) {
+            menu.exit();
+        } else if (input.hasNextLine() == "reset".contentEquals(menuSelection)) {
+            menu.reset();
+        }
+
+    }
+
+    private void setExpression() {
         fullExpression = input.nextLine();
     }
 
-    private String getExpression()
-    {
+    private String getExpression() {
         return fullExpression;
     }
 
@@ -59,15 +76,14 @@ public class TaskThree extends CalculatorApp {
         return result;
     }
 
-    public String findOperator (String str)
-    {
-        if( str.contains("+")) {
+    public String findOperator(String str) {
+        if (str.contains("+")) {
             str = "+";
-        }else if ( str.contains("-")){
+        } else if (str.contains("-")) {
             str = "-";
-        }else if ( str.contains("*")){
+        } else if (str.contains("*")) {
             str = "*";
-        }else if ( str.contains("/")){
+        } else if (str.contains("/")) {
             str = "/";
         }
 

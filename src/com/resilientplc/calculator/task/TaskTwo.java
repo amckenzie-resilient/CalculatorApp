@@ -1,25 +1,31 @@
 package com.resilientplc.calculator.task;
 
+import java.util.Scanner;
+
 public class TaskTwo extends CalculatorApp {
 
     private String fullExpression;
     private int firstNumber;
     private int secondNumber;
 
+    private String menuSelection = "";
+
     @Override
     public void showQuestion() {
 
-        String [] expression;
+        String[] expression;
         String delimiter;
 
         System.out.print("\n***************** Task 2 **********************\n");
+
+        checkMenuSelectionInput();
 
         System.out.print("\nPlease enter an expression of type number operator number\n");
 
         try {
             setExpression();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.print("Error please !");
         }
 
@@ -31,9 +37,10 @@ public class TaskTwo extends CalculatorApp {
         int array_length = expression.length;
 
         for (int i = 0; i < array_length; i++) {
-            if(i == 0) {
-                firstNumber = Integer.parseInt(expression[i]); }
-            if(i == 1) {
+            if (i == 0) {
+                firstNumber = Integer.parseInt(expression[i]);
+            }
+            if (i == 1) {
                 secondNumber = Integer.parseInt(expression[i]);
             }
         }
@@ -45,20 +52,35 @@ public class TaskTwo extends CalculatorApp {
     }
 
     @Override
-    public void setOperator()
-    {
+    public void setOperator() {
         operator = findOperator(getExpression());
     }
 
-    private String getDelimiter(String str){
+    @Override
+    public void checkMenuSelectionInput() {
 
-        if( str.contains("+")) {
+        menuSelection = input.nextLine();
+
+        if (input.hasNextLine() == "help".contentEquals(menuSelection)) {
+            menu.help();
+        } else if (input.hasNextLine() == "exit".contentEquals(menuSelection)) {
+            menu.exit();
+        } else if (input.hasNextLine() == "reset".contentEquals(menuSelection)) {
+            menu.reset();
+        } else if (input.hasNextLine() == "start".contentEquals(menuSelection)) {
+            System.out.print("Hello!: ");
+        }
+    }
+
+    private String getDelimiter(String str) {
+
+        if (str.contains("+")) {
             str = "\\++";
-        }else if ( str.contains("-")){
+        } else if (str.contains("-")) {
             str = "\\-+";
-        }else if ( str.contains("*")){
+        } else if (str.contains("*")) {
             str = "\\*+";
-        }else if ( str.contains("/")){
+        } else if (str.contains("/")) {
             str = "\\/+";
         }
 
@@ -78,39 +100,33 @@ public class TaskTwo extends CalculatorApp {
         return result;
     }
 
-    private void setExpression(){
-
+    private void setExpression() {
         fullExpression = input.nextLine();
-
     }
 
-    private String getExpression()
-    {
+    private String getExpression() {
         return fullExpression;
     }
 
-    public String findOperator (String str)
-    {
-        if( str.contains("+")) {
+    public String findOperator(String str) {
+        if (str.contains("+")) {
             str = "+";
-        }else if ( str.contains("-")){
+        } else if (str.contains("-")) {
             str = "-";
-        }else if ( str.contains("*")){
+        } else if (str.contains("*")) {
             str = "*";
-        }else if ( str.contains("/")){
+        } else if (str.contains("/")) {
             str = "/";
         }
 
         return str;
     }
 
-    private int getFirstNumber()
-    {
+    private int getFirstNumber() {
         return firstNumber;
     }
 
-    private int getSecondNumber()
-    {
+    private int getSecondNumber() {
         return secondNumber;
     }
 
@@ -118,13 +134,13 @@ public class TaskTwo extends CalculatorApp {
 
         switch (getOperator()) {
             case "+":
-                result = cal.add(getFirstNumber(),getSecondNumber());
+                result = cal.add(getFirstNumber(), getSecondNumber());
                 break;
             case "-":
-                result = cal.subtract(getFirstNumber(),getSecondNumber());
+                result = cal.subtract(getFirstNumber(), getSecondNumber());
                 break;
             case "*":
-                result = cal.multiple(getFirstNumber(),getSecondNumber());
+                result = cal.multiple(getFirstNumber(), getSecondNumber());
                 break;
             case "/":
                 result = cal.divide(getFirstNumber(), getSecondNumber());
